@@ -25,9 +25,15 @@ import sys
 download = None
 try:
     import urllib
+    opener = urllib.request.build_opener()
+    opener.addheaders = [('x-api-key', 'e6a83643-62aa-4673-8082-1724c2263a13')]
+    urllib.request.install_opener(opener)
     download = urllib.urlretrieve
 except:
     import urllib.request
+    opener = urllib.request.build_opener()
+    opener.addheaders = [('x-api-key', 'e6a83643-62aa-4673-8082-1724c2263a13')]
+    urllib.request.install_opener(opener)
     download = urllib.request.urlretrieve
 
 
